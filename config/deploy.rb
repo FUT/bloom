@@ -1,3 +1,4 @@
+require 'sidekiq/capistrano'
 require 'bundler/capistrano'
 
 set :keep_releases, 2
