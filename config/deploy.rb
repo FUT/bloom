@@ -11,7 +11,7 @@ set :normalize_asset_timestamps, false
 set :use_sudo, false
 set :user, "ubuntu"
 set :scm, :git
-set :repository, "git@github.com:FUT/bloom.git"
+set :repository, "git://github.com/FUT/bloom.git"
 set :deploy_via, :checkout
 
 namespace :deploy do
