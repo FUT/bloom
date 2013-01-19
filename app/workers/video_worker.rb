@@ -6,6 +6,6 @@ class VideoWorker
 
     GitProcessor.clone video
 
-    VideoProcessor.generate video
+    VideoProcessor.generate video unless video.is? Video::FAILED
   end
 end
