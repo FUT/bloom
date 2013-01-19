@@ -1,4 +1,7 @@
 |CREATE
 
-#spinner url=status_video_path(@video)
-  |SPINNER
+- if @video.status == 'ready'
+  = render @video
+- else
+  #spinner url=status_video_path(@video)
+    |SPINNER

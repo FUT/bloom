@@ -22,6 +22,6 @@ class VideosController < ApplicationController
   def status
     @video = Video.find params[:id]
 
-    render json: { video: @video.is?(Video::READY) && render_to_string(@video).to_json }
+    render text: @video.status
   end
 end

@@ -1,11 +1,8 @@
 $ ->
-  checkStatus = (url) =>
-    $.get url, (data) =>
-      $('#spinner').after(data.video).remove() if data.video
-
   $('#spinner').each ->
     setInterval(
-      ->
-        checkStatus($(@).attr('url'))
+      =>
+        $.get $(@).attr('url'), (status) ->
+          window.location.reload() if status == 'ready'
       ,
       5000)
