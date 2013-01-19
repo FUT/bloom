@@ -8,7 +8,31 @@
 </head>
 <body>
 
-<%= yield %>
+<div class='container'>
+  <div class='navbar'>
+    <a href="/" class="brand">
+      <div class='logo'></div>
+      Bloom
+    </a>
+  </div>
+  <div class='clearfix'></div>
+  <hr>
+</div>
+
+
+<div class='container'>
+  <div class='row'>
+    <div class='span12'>
+      <%= yield %>
+    </div>
+  </div>
+
+  <footer class='footer'>
+    <hr>
+    <span class='pull-right'>hacby 2013</span>
+  </footer>
+
+</div>
 
 </body>
 </html>

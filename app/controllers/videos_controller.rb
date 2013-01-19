@@ -8,6 +8,11 @@ class VideosController < ApplicationController
     VideoWorker.new.perform @video.id
   end
 
+
+  def new
+
+  end
+
   def status
     render json: Video.find(params[:id]).attributes.to_json
   end
