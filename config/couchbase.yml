@@ -1,8 +1,8 @@
 common: &common
   hostname: localhost
   port: 8091
-  username:
-  password:
+  username: Administrator
+  password: 123456
   pool: default
 
 development:
