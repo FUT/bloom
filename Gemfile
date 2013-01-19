@@ -16,6 +16,9 @@ gem 'simple_form'
 
 gem 'git'
 
+gem 'execjs'
+gem 'therubyracer'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
