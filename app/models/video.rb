@@ -9,7 +9,7 @@ class Video < Couchbase::Model
   STATUSES = [FAILED, READY]
 
   def repo_path
-    "public/system/repos/#{id}"
+    "/public/system/repos/#{id}"
   end
 
   def src_path

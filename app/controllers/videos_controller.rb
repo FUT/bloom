@@ -6,6 +6,12 @@ class VideosController < ApplicationController
     @video = Video.create params[:video]
 
     VideoWorker.new.perform @video.id
+
+    redirect_to video_path(@video)
+  end
+
+  def show
+    @video = Video.find params[:id]
   end
 
 
@@ -14,6 +20,8 @@ class VideosController < ApplicationController
   end
 
   def status
-    render json: Video.find(params[:id]).attributes.to_json
+    @video = Video.find params[:id]
+
+    render json: { video: @video.is?(Video::READY) && render_to_string(@video).to_json }
   end
 end
