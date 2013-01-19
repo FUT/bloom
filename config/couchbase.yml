@@ -2,16 +2,16 @@ common: &common
   hostname: localhost
   port: 8091
   username: Administrator
-  password: 123456
+  password: '123456'
   pool: default
 
 development:
   <<: *common
-  bucket: bloom_development
+  bucket: videos
 
 test:
   <<: *common
-  bucket: bloom_test
+  bucket: videos
 
 # set these environment variables on your production server
 production:

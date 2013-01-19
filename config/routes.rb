@@ -1,7 +1,7 @@
 Bloom::Application.routes.draw do
-  root to: 'videos#create'
+  root to: 'videos#new'
 
-  resources :videos do
+  resources :videos, only: [:new, :create] do
     member do
       get :status
     end

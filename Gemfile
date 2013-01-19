@@ -10,6 +10,11 @@ gem 'couchbase-model'
 
 gem 'sidekiq'
 
+gem 'slim-rails'
+
+gem 'simple_form'
+
+gem 'ruby-git'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,6 +32,10 @@ gem 'jquery-rails'
 
 group :deploy do
   gem 'capistrano'
+end
+
+group :development do
+  gem 'pry'
 end
 
 # To use ActiveModel has_secure_password

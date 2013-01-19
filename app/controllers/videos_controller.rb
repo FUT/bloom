@@ -1,13 +1,14 @@
 class VideosController < ApplicationController
-  def create
-
+  def new
   end
 
-  def show
+  def create
+    @video = Video.create params[:video]
 
+    VideoWorker.new.perform @video.id
   end
 
   def status
-
+    render json: Video.find(params[:id]).attributes.to_json
   end
 end
