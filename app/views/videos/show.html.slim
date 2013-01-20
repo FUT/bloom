@@ -1,7 +1,5 @@
-|CREATE
-
 - if @video.status == 'ready'
   = render @video
 - else
-  #spinner url=status_video_path(@video)
-    |SPINNER
+  .pagination-centered
+    #spinner url=status_video_path(@video)

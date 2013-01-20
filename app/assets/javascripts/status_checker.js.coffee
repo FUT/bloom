@@ -3,6 +3,7 @@ $ ->
     setInterval(
       =>
         $.get $(@).attr('url'), (status) ->
-          window.location.reload() if status == 'ready'
+          if status == 'ready'
+            setTimeout 'window.location.reload()', 7000
       ,
-      5000)
+      10000)
