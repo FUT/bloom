@@ -3,6 +3,6 @@ module VideoProcessor
     video.change_status! Video::READY
 
     Rails.logger.info "In video precessing: #{video.id}"
-    system "cd #{Rails.root.join video.repo_path} && gource -640x480 -o - | ffmpeg -y -r 25 -f image2pipe -vcodec ppm -i - -vcodec libvpx -b 10000K gource.webm"
+    system "cd #{Rails.root.join video.repo_path} && xvfb-run -a -s \"-screen 0 1280x720x24\" gource -640x480 -o - | ffmpeg -y -r 25 -f image2pipe -vcodec ppm -i - -vcodec libvpx -b 10000K gource.webm"
   end
 end
