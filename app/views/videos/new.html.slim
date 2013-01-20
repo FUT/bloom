@@ -7,6 +7,6 @@
   = form_for Video.new, :html => {:class => 'form-search'} do |f|
     .input-append
       = f.text_field :repo, :class => 'search-field', :placeholder => 'Pase public git repository here'
-      = f.submit 'Generate video', :class => 'btn btn-large btn-primary offset1'
+      = f.submit 'Generate video', :class => 'btn btn-large btn-primary offset1', id: 'submit-repo'
 
   = render partial: 'latest_videos'
