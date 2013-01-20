@@ -1,5 +1,9 @@
 class VideosController < ApplicationController
   def new
+    if params[:errorId]
+      Video.find(params[:errorId]).delete rescue nil
+      flash.now[:alert] = 'Invalid repository url! Try another one please.'
+    end
   end
 
   def create
@@ -12,8 +16,6 @@ class VideosController < ApplicationController
       VideoWorker.perform_async @video.id
     end
 
-    LatestVideos.add @video.id
-
     redirect_to video_path(@video)
   end
 
@@ -21,14 +23,9 @@ class VideosController < ApplicationController
     @video = Video.find params[:id]
   end
 
-
-  def new
-
-  end
-
   def status
     @video = Video.find params[:id]
 
-    render text: @video.status
+    render json: {status: @video.status, id: @video.id}
   end
 end
