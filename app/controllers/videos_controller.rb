@@ -8,9 +8,11 @@ class VideosController < ApplicationController
     begin
       @video = Video.find(repo_hash)
     rescue Couchbase::Error::NotFound
-      @video = Video.create params[:video].merge(:id => repo_hash)
+      @video = Video.create params[:video].merge(id: repo_hash, created_at: Time.now)
       VideoWorker.perform_async @video.id
     end
+
+    LatestVideos.add @video.id
 
     redirect_to video_path(@video)
   end

@@ -1,0 +1,4 @@
+li
+  = link_to latest_video.repo, latest_video
+  br
+  span = t('uploaded_ago', time: time_ago_in_words(latest_video.created_at || 1.hour.ago))

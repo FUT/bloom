@@ -2,6 +2,7 @@ class Video < Couchbase::Model
   attribute :status
   attribute :filename
   attribute :repo
+  attribute :created_at
 
   FAILED = 'failed'
   READY = 'ready'

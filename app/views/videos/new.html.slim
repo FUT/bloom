@@ -8,3 +8,5 @@
     .input-append
       = f.text_field :repo, :class => 'search-field', :placeholder => 'Pase public git repository here'
       = f.submit 'Generate video', :class => 'btn btn-large btn-primary offset1'
+
+  = render partial: 'latest_videos'
