@@ -3,6 +3,7 @@
 
   .clearfix
 
-  = simple_form_for Video.new do |f|
-    = f.input :repo
-    = f.submit
+  = form_for Video.new, :html => {:class => 'form-search'} do |f|
+    .input-append
+      = f.text_field :repo, :class => 'search-field'
+      = f.submit 'Generate video', :class => 'btn btn-large btn-primary offset1'
