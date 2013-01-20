@@ -9,7 +9,7 @@ class VideoWorker
     Rails.logger.info "Processed video: #{video_id}"
 
     Rails.logger.info "Generating video: #{video_id}"
-    unless gideo.is? Video::FAILED
+    unless video.is? Video::FAILED
       VideoProcessor.generate video
       LatestVideos.add video.id
     end
