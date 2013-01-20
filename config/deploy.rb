@@ -6,7 +6,7 @@ set :application, "bloom"
 set :deploy_to, "/home/ubuntu/#{application}"
 set :rails_env, 'production'
 set :branch, 'master'
-server 'ec2-54-246-44-2.eu-west-1.compute.amazonaws.com', :web, :app, :db, :primary => true
+server 'ec2-46-137-10-249.eu-west-1.compute.amazonaws.com', :web, :app, :db, :primary => true
 set :normalize_asset_timestamps, false
 
 set :use_sudo, false
