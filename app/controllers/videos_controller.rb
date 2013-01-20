@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   def create
     @video = Video.create params[:video]
 
-    VideoWorker.new.perform @video.id
+    VideoWorker.perform_async @video.id
 
     redirect_to video_path(@video)
   end
