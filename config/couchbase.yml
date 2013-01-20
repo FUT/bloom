@@ -12,12 +12,10 @@ development:
 test:
   <<: *common
   bucket: videos
-
-# set these environment variables on your production server
 production:
-  hostname: <%= ENV['COUCHBASE_HOST'] %>
-  port: <%= ENV['COUCHBASE_PORT'] %>
-  username: <%= ENV['COUCHBASE_USERNAME'] %>
-  password: <%= ENV['COUCHBASE_PASSWORD'] %>
-  pool: <%= ENV['COUCHBASE_POOL'] %>
-  bucket: <%= ENV['COUCHBASE_BUCKET'] %>
+  hostname: localhost
+  port: 8091
+  username: Administrator
+  password: asd123!@#
+  pool: default
+  bucket: videos
