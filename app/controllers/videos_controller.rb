@@ -3,9 +3,14 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.create params[:video]
+    repo_hash = Digest::SHA1.hexdigest(params[:video][:repo].downcase)
 
-    VideoWorker.perform_async @video.id
+    begin
+      @video = Video.find(repo_hash)
+    rescue Couchbase::Error::NotFound
+      @video = Video.create params[:video].merge(:id => repo_hash)
+      VideoWorker.perform_async @video.id
+    end
 
     redirect_to video_path(@video)
   end
